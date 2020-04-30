@@ -42,11 +42,13 @@ class ZLaunchAdButton: UIButton {
             
         case .textRightTimerLeft:
             let time = "\(time)" as NSString
-            let title = NSMutableAttributedString(string: "\(time) \(config.text)")
-            title.addAttributes([.foregroundColor: config.timeColor, .font: config.timeFont], range: NSMakeRange(0, time.length))
-            title.addAttributes([.foregroundColor: config.textColor, .font: config.textFont], range: NSMakeRange(time.length+1, config.text.length))
-            setAttributedTitle(title, for: .normal)
-            
+            //let title = NSMutableAttributedString(string: "\(time)  \(config.text)")
+            //title.addAttributes([.foregroundColor: config.timeColor, .font: config.timeFont], range: NSMakeRange(0, time.length))
+            //title.addAttributes([.foregroundColor: config.textColor, .font: config.textFont], range: NSMakeRange(time.length+1, config.text.length))
+            //setAttributedTitle(title, for: .normal)
+            titleLabel?.font = config.textFont
+            setTitle("\(time) \(config.text)", for: .normal)
+
         case .roundText:
             setTitle("\(config.text)", for: .normal)
             setTitleColor(config.textColor, for: .normal)
